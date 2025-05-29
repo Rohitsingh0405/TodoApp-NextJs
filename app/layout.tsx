@@ -39,7 +39,7 @@ export default function RootLayout({
               </h1>
             </div>
             <div className=" h-5/6 flex mt-10 flex-col gap-4">{children}</div>
-            {/* <div><Login></Login></div> */}
+            <div><Login></Login></div>
         </div>
         </div>
   </div>
