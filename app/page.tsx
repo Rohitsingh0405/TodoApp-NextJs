@@ -37,16 +37,27 @@ export default function Home() {
 
   const [todo,setTodo] = useState<todoListType[]>(todoList);
   const[showModel,setShowModel] = useState<boolean>(false)
-return <div >
+return <div>
+  <div className="w-full h-full rounded-4xl m-0 p-0 "></div> 
+           <div className="flex items-center justify-center w-full h-screen flex-row">
+  
+            <div className=" w-full h-full rounded-lg bg-[#151515]">
+              <div className="flex items-center justify-center w-full h-1/6  bg-amber-400 rounded-lg ">
+                <h1 className="text-white text-[20px] font-bold">
+                  Todo App
+                </h1>
+              </div>
      {showModel &&<LikhnekaJagahmodel setShowModel={setShowModel} setTodos={setTodo}/>}
-      <div>
+      <div className="relative">
         {
          todo && todo.map((todo:todoListType)=>{
             // console.log(key)
+            // localStorage.setItem(todo,tood)
             if(todo.isComplete){
               return <div key={todo.id}>
                 {/* console.log(key) */}
               <TODO todo={todo} setTodo={setTodo}  />
+              
               <div className="h-3"></div>
             
               </div>
@@ -55,10 +66,9 @@ return <div >
             }
           })
         }
-      </div>
       <div>
         {
-
+          
           todo.map((todo:todoListType)=>{
             if(!todo.isComplete){
               return <div key={todo.id}>
@@ -73,15 +83,19 @@ return <div >
             }
           })
         }
+          </div>
+          </div>
       </div>
-      <div className="text-center text-gray-50 absolute-bottom left-1/2 rounded-xl bg-amber-500 cursor-pointer " onClick={()=>{
-      setShowModel(!showModel)
+      <div className="w-3/6 text-center text-gray-50 absolute bottom-0 left-60 rounded-xl bg-amber-500 cursor-pointer autofocus-autofocus" onClick={()=>{
+        setShowModel(!showModel)
       
       }}>
       add todo &#xf067;
 
       </div>
+
     
     </div>
+        </div>
 
 }

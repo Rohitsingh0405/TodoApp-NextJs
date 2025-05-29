@@ -15,24 +15,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="">
+      <body >
         <div>
-          
-        
-         <div className="w-4/6 h-120  rounded-4xl"></div> 
-         <div className="flex items-center justify-center w-full h-screen flex-row -mt-100 ">
-
-          <div className=" w-70 h-120 m-20 rounded-lg bg-[#151515]">
-            <div className="flex items-center justify-center w-full h-1/6  bg-amber-400 rounded-lg ">
-              <h1 className="text-white text-[20px] font-bold">
-                Todo App
-              </h1>
-            </div>
-            <div className=" h-5/6 flex mt-10 flex-col gap-4">{children}</div>
-            <div><Login></Login></div>
+            <div className=" h-full flex flex-col">{children}</div>
+            {/* <div><Login></Login></div> */}
         </div>
-        </div>
-  </div>
 
       </body>
     </html>

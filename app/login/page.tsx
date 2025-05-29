@@ -2,23 +2,22 @@ import React from "react";
 
 export default function Login(){
     return(
-        <div>
-            <div className="bg-[#7a3a90] h-100 w-60 rounded-xl">
-                <div className="w-50 h-1/2 flex flex-col items-center align-middle justify-center gap-2 mt-20">
-                    <div className="h-10 w-5/6 border-2 text-white rounded-4xl flex items-center ">
-                    <input className="ml-5" type="text" placeholder="Username" /></div>
-                    <div className="h-10 w-5/6 border-2 text-white rounded-4xl flex items-center">
-                    <input className="ml-5" type="text" placeholder="Password" />
-                    </div>
-                    
-                    <div>
-                        <button className=" h-10 w-30 bg-white rounded-3xl cursor-pointer ">
-
-                        Login
-                        </button>
-                    </div>
-                </div>
+        <div className="flex justify-center items-center h-screen w-screen bg-black">
+        <div className="w-80 h-100 flex flex-col items-center bg-amber-400 border-2 border-black rounded-lg gap-2">
+            <div className="text-center font-bold text-2xl text-white">
+                <h1>Login</h1>
             </div>
-        </div>
-    )
+            <div>
+                <input type="text" placeholder="Username" className="w-full h-10 p-2 border-2 border-black rounded-lg"/>
+            </div>
+            <div>
+                <input type="password" placeholder="Password" className="w-full h-10 p-2 border-2 border-black rounded-lg"/>
+            </div>
+            <div>
+                
+                <button className="w-full h-10 p-2 border-2 border-black rounded-lg bg-amber-400 text-white">Google Login</button>
+            </div>
+            </div>
+ </div>           
+            )
 }

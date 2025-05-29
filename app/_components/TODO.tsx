@@ -28,7 +28,7 @@ function TODO(
 
   return (
     <div className="">
-      <div className=" h-10 w-60 rounded-md bg-[#201f1f] flex flex-row items-center  ml-5 gap-4">
+      <div className=" h-10 w-full rounded-md bg-[#201f1f] flex flex-row items-center  gap-4">
        <div className="w-4 h-4 rounded-2xl border-1 bg-amber-400 flex items-center"> 
              
            {
