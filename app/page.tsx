@@ -11,26 +11,26 @@ export interface todoListType {
 
 const todoList:todoListType[] = [
   
-  {
-    id:"1",
-    todo:"Complete Todo app",
-    isComplete:true,
-  },
-  {
-    id:"2",
-    todo:"See lecture",
-    isComplete:true,
-  },
-  {
-    id:"3",
-    todo:"See striver dsa ",
-    isComplete:true,
-  },
-  {
-    id:"4",
-    todo:"Solve Dsa",
-    isComplete:true,
-  }
+  // {
+  //   id:"1",
+  //   todo:"Complete Todo app",
+  //   isComplete:true,
+  // },
+  // {
+  //   id:"2",
+  //   todo:"See lecture",
+  //   isComplete:true,
+  // },
+  // {
+  //   id:"3",
+  //   todo:"See striver dsa ",
+  //   isComplete:true,
+  // },
+  // {
+  //   id:"4",
+  //   todo:"Solve Dsa",
+  //   isComplete:true,
+  // }
 ]
 
 export default function Home() {
