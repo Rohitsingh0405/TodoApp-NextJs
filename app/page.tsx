@@ -18,7 +18,7 @@ const todoList:todoListType[] = [
   },
   {
     id:"2",
-    todo:"See Harkirat lecture",
+    todo:"See lecture",
     isComplete:true,
   },
   {
@@ -66,7 +66,7 @@ return <div>
             }
           })
         }
-      <div>
+      
         {
           
           todo.map((todo:todoListType)=>{
@@ -85,7 +85,7 @@ return <div>
         }
           </div>
           </div>
-      </div>
+      
       <div className="w-3/6 text-center text-gray-50 absolute bottom-0 left-60 rounded-xl bg-amber-500 cursor-pointer autofocus-autofocus" onClick={()=>{
         setShowModel(!showModel)
       

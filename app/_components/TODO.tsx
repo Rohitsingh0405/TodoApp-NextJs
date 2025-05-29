@@ -28,8 +28,8 @@ function TODO(
 
   return (
     <div className="">
-      <div className=" h-10 w-full rounded-md bg-[#201f1f] flex flex-row items-center  gap-4">
-       <div className="w-4 h-4 rounded-2xl border-1 bg-amber-400 flex items-center"> 
+      <div className=" h-10 w-full rounded-md bg-[#201f1f] flex flex-row items-center  "onClick={toggleButton}>
+       <div className="w-4 h-4 rounded-2xl border-1 bg-amber-400 flex items-center " > 
              
            {
             !isComplete && 
