@@ -32,7 +32,7 @@ function TODO(
        <div className="w-4 h-4 rounded-2xl border-1 bg-amber-400 flex items-center " > 
              
            {
-            !isComplete && 
+            isComplete && 
              <div className="text-black font-bold">
                     &#10003;
                     </div>
