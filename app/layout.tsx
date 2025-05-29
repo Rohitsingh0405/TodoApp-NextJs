@@ -30,7 +30,7 @@ export default function RootLayout({
           
         
          <div className="w-4/6 h-120  rounded-4xl"></div> 
-         <div className="flex items-center justify-center w-full h-screen flex flex-row -mt-100 ">
+         <div className="flex items-center justify-center w-full h-screen flex-row -mt-100 ">
 
           <div className=" w-70 h-120 m-20 rounded-lg bg-[#151515]">
             <div className="flex items-center justify-center w-full h-1/6  bg-amber-400 rounded-lg ">
