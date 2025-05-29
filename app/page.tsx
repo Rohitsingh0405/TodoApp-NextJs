@@ -1,10 +1,8 @@
 "use client"
-import Image from "next/image";
 import TODO from "./_components/TODO";
-import { todo } from "node:test";
 import { useState } from "react";
 import LikhnekaJagahmodel from "./_components/LikhnekaJagahmodel";
-import Login from "./login/page";
+
 export interface todoListType {
   id:string,
   todo:string,
