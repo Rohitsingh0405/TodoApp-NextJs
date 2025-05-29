@@ -1,6 +1,6 @@
 "use client";
 import TODO from "./_components/TODO";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LikhnekaJagahmodel from "./_components/LikhnekaJagahmodel";
 
 export interface todoListType {
@@ -10,7 +10,7 @@ export interface todoListType {
 }
 
 const todoList: todoListType[] = [
-  // Example todos (you can enable for testing)
+  // // Example todos (you can enable for testing)
   // { id: "1", todo: "Complete Todo app", isComplete: false },
   // { id: "2", todo: "See lecture", isComplete: true },
 ];
@@ -18,7 +18,22 @@ const todoList: todoListType[] = [
 export default function Home() {
   const [todo, setTodo] = useState<todoListType[]>(todoList);
   const [showModel, setShowModel] = useState<boolean>(false);
+  useEffect(()=>{
+    const a = localStorage.getItem("TODO")
+    if(a){
+      try{
+        const b = JSON.parse(a)
+        setTodo(b)
 
+      }catch(e:any){
+        console.log(e)
+      }
+    }
+  },[])
+  useEffect(()=>{
+  
+    localStorage.setItem("TODO",JSON.stringify(todo))
+  },[todo])
   return (
     <div className="min-h-screen bg-[#1e1e1e] text-white flex flex-col items-center px-4 py-6">
       
