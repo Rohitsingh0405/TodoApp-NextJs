@@ -9,8 +9,7 @@ function TODO(
   todo: todoListType;
   setTodo:Dispatch<SetStateAction<todoListType[]>>
 }) {
-  // const {todoss} = todo;
-  // console.log(todoss)
+
   const toggleButton = () => {
     if(isComplete){
       setTodo((prevtodo)=>
