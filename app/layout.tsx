@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Login from "./login/page";
+
 
 
 export const metadata: Metadata = {
