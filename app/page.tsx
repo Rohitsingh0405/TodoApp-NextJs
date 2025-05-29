@@ -39,9 +39,6 @@ export default function Home() {
 
   const [todo,setTodo] = useState<todoListType[]>(todoList);
   const[showModel,setShowModel] = useState<boolean>(false)
-const addTodo = ()=>{
-    console.log("Add new todo")
-}
 return <div >
      {showModel &&<LikhnekaJagahmodel setShowModel={setShowModel} setTodos={setTodo}/>}
       <div>
