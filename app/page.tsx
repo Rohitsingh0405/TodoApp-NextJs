@@ -25,7 +25,7 @@ export default function Home() {
         const b = JSON.parse(a)
         setTodo(b)
 
-      }catch(e:any){
+      }catch(e){
         console.log(e)
       }
     }
