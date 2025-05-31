@@ -1,7 +1,10 @@
 "use client"
+import { useRouter } from "next/navigation";
+// import from next/ router when your are on your server side
 import React, { useState } from "react";
 
 export default function SignUp() {
+  const navigation = useRouter() 
   const [user,setUser] = useState("")
   const [pass,setPass] = useState("")
   
@@ -19,7 +22,9 @@ export default function SignUp() {
         }),
       }
     );
+    navigation.push("/login")
     console.log(await message.json());
+    // Redirect to login
   }; 
 
   return (

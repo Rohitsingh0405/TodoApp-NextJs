@@ -1,7 +1,14 @@
 "use client"
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
+type LoginData={
+  success:boolean,
+  token:string
+}
+
 export default function Login() {
+  const navigation = useRouter()
     const [userlogin,setUserlogin] = useState("")
     const [passlogin,setPasslogin] = useState("")
     
@@ -19,7 +26,15 @@ export default function Login() {
           }),
         }
       );
-      console.log(await message.json());
+      // console.log(await message.json());
+      const LoginData:LoginData = await message.json();
+      console.log(LoginData)
+      localStorage.setItem("Token",LoginData.token)
+      // console.log(await message.json())
+      navigation.push("/")
+      // Save in local storage
+      // Redirect to home page
+  
     }; 
 
   

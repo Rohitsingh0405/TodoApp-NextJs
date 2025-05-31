@@ -2,6 +2,8 @@
 import TODO from "./_components/TODO";
 import { useEffect, useState } from "react";
 import LikhnekaJagahmodel from "./_components/LikhnekaJagahmodel";
+// import { useRouter } from "next/navigation";
+import Auth from "./_components/Auth";
 
 export interface todoListType {
   id: string;
@@ -15,7 +17,9 @@ const todoList: todoListType[] = [
   // { id: "2", todo: "See lecture", isComplete: true },
 ];
 
+
 export default function Home() {
+
   const [todo, setTodo] = useState<todoListType[]>(todoList);
   const [showModel, setShowModel] = useState<boolean>(false);
   useEffect(()=>{
@@ -31,10 +35,11 @@ export default function Home() {
     }
   },[])
   useEffect(()=>{
-  
+    
     localStorage.setItem("TODO",JSON.stringify(todo))
   },[todo])
   return (
+    <Auth>
     <div className="min-h-screen bg-[#1e1e1e] text-white flex flex-col items-center px-4 py-6">
       
       {/* Header */}
@@ -85,5 +90,6 @@ export default function Home() {
         Add Todo +
       </button>
     </div>
+  </Auth>
   );
 }
