@@ -14,7 +14,7 @@ export default function Login() {
     
      const handleSubmit1 = async () => {
      const message = await fetch(
-       `http://192.168.1.6:8080/login`,
+       `http://localhost:8080/login`,
         {
           method: "POST",
           headers: {

@@ -38,6 +38,8 @@ export default function Home() {
     
     localStorage.setItem("TODO",JSON.stringify(todo))
   },[todo])
+  const store = localStorage.getItem("Token")
+    console.log(store)
   return (
     <Auth>
     <div className="min-h-screen bg-[#1e1e1e] text-white flex flex-col items-center px-4 py-6">
