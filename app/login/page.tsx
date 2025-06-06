@@ -1,6 +1,7 @@
 "use client"
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import SignUp from "../signup/page";
 
 type LoginData={
   success:boolean,
@@ -9,7 +10,7 @@ type LoginData={
 
 export default function Login() {
   const navigation = useRouter()
-    const [userlogin,setUserlogin] = useState("")
+    const [useremail,setUseremail] = useState("")
     const [passlogin,setPasslogin] = useState("")
     
      const handleSubmit1 = async () => {
@@ -21,7 +22,7 @@ export default function Login() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            username:userlogin,
+            email:useremail,
             password:passlogin,
           }),
         }
@@ -45,11 +46,11 @@ export default function Login() {
         <h1 className="text-center font-bold text-3xl text-white">Login</h1>
 
         <input
-          type="text"
-          placeholder="Username"
+          type="email"
+          placeholder="email"
           className="w-full h-10 px-3 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
           onChange={(e)=>{
-            setUserlogin(e.target.value)
+            setUseremail(e.target.value)
           }}
         />
 
@@ -70,8 +71,11 @@ export default function Login() {
 
         <button
           className="w-full h-10 bg-white text-black font-semibold rounded-lg border-2 border-black hover:bg-black hover:text-white transition"
+          onClick={()=>{
+            navigation.push("/signup")
+          }}
         >
-          Login with Google
+          Signup 
         </button>
       </div>
     </div>

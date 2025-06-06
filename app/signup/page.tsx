@@ -7,6 +7,7 @@ export default function SignUp() {
   const navigation = useRouter() 
   const [user,setUser] = useState("")
   const [pass,setPass] = useState("")
+  const [email,setemail] = useState("")
   
    const handleSubmit = async () => {
    const message = await fetch(
@@ -19,6 +20,7 @@ export default function SignUp() {
         body: JSON.stringify({
           username:user,
           password:pass,
+          email:email
         }),
       }
     );
@@ -49,6 +51,14 @@ export default function SignUp() {
           }}
         />
         
+        <input
+          type="email"
+          placeholder="email"
+          className="w-full h-10 px-3 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
+          onChange={(e)=>{
+            setemail(e.target.value)
+          }}
+        />
       
     {/* const handleSubmit = ()=>{
       const message = fetch(http://192.168.1.6:8080/signup
