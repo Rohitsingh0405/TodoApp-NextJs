@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import SignUp from "../signup/page";
+
 
 type LoginData={
   success:boolean,
