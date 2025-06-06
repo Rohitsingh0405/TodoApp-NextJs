@@ -10,7 +10,19 @@ export default function LikhnekaJagahmodel({
 }) {
   const [value, setValue] = useState<string>("");
 
-  const handleAdd = () => {
+    const handleAdd = async () => {
+      const token = localStorage.getItem("Token")
+       const message = await fetch(
+       `http://localhost:8080/addTodo`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization":`${token}`
+          },
+          body: JSON.stringify({todo:value})
+        }
+      );
     if (!value.trim()) return; // Prevent empty todos
 
     setTodos((prev) => {
