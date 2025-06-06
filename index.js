@@ -9,7 +9,7 @@ const app = express();
 const cors = require('cors')
 const prisma = require("./prismasetup")
 const { randomUUID } = require('crypto')
-const { emit } = require('process')
+const { emit, title } = require('process')
 const { match } = require('assert')
 app.use(cors())
 app.use(express.json())
@@ -136,54 +136,45 @@ app.post("/Login",async(req,res)=>{
 app.get("/Access",(req,res)=>{
 res.json("hello")
 })
-app.post("/addTodo",(req,res)=>{
-    // console.log("This is the add Todo api")
+app.post("/addTodo",async(req,res)=>{
     const token1 = req.headers.authorization
-    // console.log(token1)
-    const token11 = token1.split(" ")
-    // console.log(token11)
-   const usr = jwt.verify(token11[1],process.env.JWT_SECRET)
-    // console.log(usr.username)
+    console.log(req.headers)
+    console.log(req.body)
 
-    // console.log(req.userData)
-//    if(!usr.username){
-//     console.log("You are not sending token")
-//     res.status(404).json({Message:"You are not sending the token"})
-//     return
-//    }
-//    if(!fs.existsSync(`${usr.username}.txt`)){
-//     console.log("user does not exists")
-//     const {data} = req.body
-//     createUserDatabase(usr.username,data)
-//     // fs.writeFileSync(`${usr}.txt`,data)
-//     res.status(200).json({Todo:"Your Todo is Added"})
-//     return
-// }
-// if(fs.existsSync(`${usr.username}.txt`)){
-//     const {data} = req.body
-//     fs.appendFileSync(`${usr.username}.txt`,data + space + ti)
-//     // fs.appendFileSync(`${usr.username}.txt`,ti)
-//     res.status(200).json({Todo:"Your Todo is Added"})
-//     return
-// }
-})
+   const usr = jwt.verify(token1,process.env.JWT_SECRET)
+    const email1 = await prisma.User.findUnique({
+        where:{email:usr.email},
+        select:{id:true}
+    })
+    if(email1){
+        const createTodo = await prisma.Todo.create({
+            data:{
+                id:randomUUID(),
+                title:req.body.todo,
+                userId:email1.id
+            }
+        })       
+       res.json({
+        msg:"Todo added"
+       })  
+       return
+    }
+    res.json({
+        msg:"Todo not added"
+    })
+}
+    
+)
 app.get("/seeTodo",(req,res)=>{
     // const usr = tokenVerify()
     const token1 = req.headers.authorization
     // console.log(token1)
-    const token11 = token1.split(" ")
+    // const token11 = token1.split(" ")
     // console.log(token11)
-    const usr = jwt.verify(token11[1],process.env.JWT_SECRET)
+    const usr = jwt.verify(token1,process.env.JWT_SECRET)
     // console.log(usr.username)
 
     // console.log(req.userData)
-    if(usr.username == "Aniket"){
-        const data = fs.readFileSync("database.json",'utf-8')
-        const data1 = JSON.parse(data) 
-        res.json(data1)
-
-        return
-    }
 
    if(!usr.username){
     console.log("You are not sending token")
